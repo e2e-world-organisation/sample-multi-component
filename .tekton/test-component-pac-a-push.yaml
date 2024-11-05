@@ -10,11 +10,11 @@ metadata:
       == "test-group-branch"
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: integ-app-hamx
-    appstudio.openshift.io/component: test-component-pac-hwbtxh
+    appstudio.openshift.io/application: integ-app-group
+    appstudio.openshift.io/component: test-component-pac-a
     pipelines.appstudio.openshift.io/type: build
-  name: test-component-pac-hwbtxh-on-push
-  namespace: group-zeom-tenant
+  name: test-component-pac-a-on-push
+  namespace: group-xyz-tenant
 spec:
   params:
   - name: git-url
@@ -22,7 +22,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/quay-or-not-to-quay/group-zeom-tenant/test-component-pac-hwbtxh:{{revision}}
+    value: quay.io/quay-or-not-to-quay/group-xyz-tenant/test-component-pac-a:{{revision}}
   - name: dockerfile
     value: Dockerfile
   - name: path-context
