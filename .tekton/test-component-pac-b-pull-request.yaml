@@ -8,15 +8,15 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch
-      == "main" && ( "go-component/docker/***".pathChanged() || ".tekton/test-component-pac-jjazks-pull-request.yaml".pathChanged()
+      == "main" && ( "python-component/docker/***".pathChanged() || ".tekton/test-component-pac-b-pull-request.yaml".pathChanged()
       )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: integ-app-hamx
-    appstudio.openshift.io/component: test-component-pac-jjazks
+    appstudio.openshift.io/application: integ-app-group
+    appstudio.openshift.io/component: test-component-pac-b
     pipelines.appstudio.openshift.io/type: build
-  name: test-component-pac-jjazks-on-pull-request
-  namespace: group-zeom-tenant
+  name: test-component-pac-b-on-pull-request
+  namespace: group-xyz-tenant
 spec:
   params:
   - name: git-url
@@ -24,13 +24,13 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/quay-or-not-to-quay/group-zeom-tenant/test-component-pac-jjazks:on-pr-{{revision}}
+    value: quay.io/quay-or-not-to-quay/group-xyz-tenant/test-component-pac-b:on-pr-{{revision}}
   - name: image-expires-after
     value: 6h
   - name: dockerfile
     value: Dockerfile
   - name: path-context
-    value: go-component/docker
+    value: python-component/docker
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while reducing network traffic.
