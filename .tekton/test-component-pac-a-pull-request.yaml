@@ -8,15 +8,15 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch
-      == "main" && ( "python-component/docker/***".pathChanged() || ".tekton/test-component-pac-hwbtxh-pull-request.yaml".pathChanged()
+      == "main" && ( "python-component/docker/***".pathChanged() || ".tekton/test-component-pac-a-pull-request.yaml".pathChanged()
       )
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: integ-app-hamx
-    appstudio.openshift.io/component: test-component-pac-hwbtxh
+    appstudio.openshift.io/application: integ-app-group
+    appstudio.openshift.io/component: test-component-pac-a
     pipelines.appstudio.openshift.io/type: build
-  name: test-component-pac-hwbtxh-on-pull-request
-  namespace: group-zeom-tenant
+  name: test-component-pac-a-on-pull-request
+  namespace: group-xyz-tenant
 spec:
   params:
   - name: git-url
@@ -24,7 +24,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/quay-or-not-to-quay/group-zeom-tenant/test-component-pac-hwbtxh:on-pr-{{revision}}
+    value: quay.io/quay-or-not-to-quay/group-xyz-tenant/test-component-pac-a:on-pr-{{revision}}
   - name: image-expires-after
     value: 6h
   - name: dockerfile
